@@ -9,7 +9,7 @@ export default class Image extends Media {
     this.alt = data.alt;
     
     /* FRA: Sotck la vue specifique dans l'element */
-    
+    this.element = this.getView();
   };
 
   /**

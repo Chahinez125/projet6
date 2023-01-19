@@ -63,7 +63,7 @@ const sort = new SortDropDownSelector();
 
 dispatch(sort.getView(), sortTarget);
 
-/* ENG: Get photographer's media */
+//
 /* FRA: Obtenir les media d'un photographe */
 const medias = Api.getPhotographerMedia(photographerId);
 
@@ -75,6 +75,6 @@ const cardInfos = new CardInfos(photographer.price);
 
 dispatch(cardInfos.getView(), cardInfosTarget);
 
-/* ENG: Contact Form Initialization */
+
 /* FR: Initialisation du formulaire de contact */
 FormContact.initialization();

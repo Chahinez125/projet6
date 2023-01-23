@@ -3,16 +3,16 @@ import Media from './Media.js';
 export default class LightBox {
   constructor (elements, index) {
    
-    /* FRA: Récupérer l'élément de la lightbox modal de la vue html */
+    /* Récupérer l'élément de la lightbox modal de la vue html */
     this.target = document.getElementById('modal-lightbox');
     this.elements = elements;
     this.id = index;
     this.current = this.elements[this.id];
     this.render();
-  };
+  }
 
   /**
-   * FRA: Cette fonction va retourner la vue de la lightbox
+   *  Cette fonction va retourner la vue de la lightbox
    * @returns {HTMLElement}
    */
   getView = () => {
@@ -20,12 +20,12 @@ export default class LightBox {
     const container = document.createElement('div');
     container.setAttribute('class', 'lightbox__container');
 
-    /* FRA: Création de l'élement container, contenant le media */
+    /* Création de l'élement container, contenant le media */
     const mediaContainer = document.createElement('div');
     mediaContainer.setAttribute('class', 'media-container');
     this.mediaContainer = mediaContainer;
 
-    /* FRA: Title media element */
+    /* Title media element */
     
     const title = document.createElement('p');
     title.setAttribute('class', 'title');
@@ -35,26 +35,26 @@ export default class LightBox {
     this.title = title;
 
     
-    /* FRA: Création de la flèche gauche de la LightBox */
+    /* Création de la flèche gauche de la LightBox */
     const arrowLeft = document.createElement('button');
     arrowLeft.setAttribute('class', 'arrow-left');
     arrowLeft.setAttribute('aria-label', 'précédent');
     arrowLeft.innerHTML = '<i role="button" class="fas fa-chevron-left"></i>';
     
-    /* FRA: Au clique, affichage du précédent media */
+    /*  Au clique, affichage du précédent media */
     arrowLeft.addEventListener('click', () => this.prevMedia());
 
     
-    /* FRA: Création de la flèche droite de la LightBox */
+    /* Création de la flèche droite de la LightBox */
     const arrowRight = document.createElement('button');
     arrowRight.setAttribute('class', 'arrow-right');
     arrowRight.setAttribute('aria-label', 'suivant');
     arrowRight.innerHTML = '<i role="button" class="fas fa-chevron-right"></i>';
     
-    /* FRA: Au clique, affichage du media suivant */
+    /*  Au clique, affichage du media suivant */
     arrowRight.addEventListener('click', () => this.nextMedia());
 
-    /* FRA: Création d'un bouton de fermeture de la lightbox */
+    /* Création d'un bouton de fermeture de la lightbox */
     const closeBtn = document.createElement('button');
     closeBtn.setAttribute('class', 'close');
     closeBtn.setAttribute('id', 'close-lightbox');
@@ -62,7 +62,7 @@ export default class LightBox {
     closeBtn.innerHTML = '<i class="fas fa-times"></i>';
     this.closeBtn = closeBtn;
 
-    /* FRA: Au clique, fermeture de la lightbox */
+    /*  Au clique, fermeture de la lightbox */
     closeBtn.addEventListener('click', () => {
       this.closeLightbox();
     });
@@ -78,7 +78,7 @@ export default class LightBox {
   };
 
   
-  /* FRA: Ouverture de la lightbox */
+  /* Ouverture de la lightbox */
   openLightbox = () => {
     this.target.classList.add('open');
     document.body.classList.add('no-scroll');
@@ -88,7 +88,7 @@ export default class LightBox {
   };
 
  
-  /* FRA: Fermeture de la lightbox */
+  /* Fermeture de la lightbox */
   closeLightbox = () => {
     this.target.classList.remove('open');
     document.body.classList.remove('no-scroll');
@@ -97,16 +97,16 @@ export default class LightBox {
   };
 
   
-  /* FRA: Cette fonction va permettre de garder le focus sur l'element de la lightbox */
+  /*  Cette fonction va permettre de garder le focus sur l'element de la lightbox */
   trackFocus = (e) => {
     if (e.target === this.closeBtn) {
       e.preventDefault();
       this.target.focus();
-    };
+    }
   };
 
   /**
-   * FRA: Cette fonction controle les entrés clavier sur la lightbox
+   * Cette fonction controle les entrés clavier sur la lightbox
    * @param {KeybordEvent} e
    */
   accessibility = (e) => {
@@ -125,7 +125,7 @@ export default class LightBox {
         break;
       default:
         break;
-    };
+    }
   };
 
   nextMedia = () => {
@@ -133,7 +133,7 @@ export default class LightBox {
     this.current = this.elements[this.id];
     this.title.innerHTML = this.current.title;
     
-    /* FRA: On remplace l'ancien media par le nouveau media */
+    /* On remplace l'ancien media par le nouveau media */
     this.mediaContainer.replaceChild(this.getMedia(), this.mediaContainer.children[0]);
   };
 
@@ -142,12 +142,11 @@ export default class LightBox {
     this.current = this.elements[this.id];
     this.title.innerHTML = this.current.title;
     
-    /* FRA: On remplace l'ancien media par le nouveau media */
+    /* On remplace l'ancien media par le nouveau media */
     this.mediaContainer.replaceChild(this.getMedia(), this.mediaContainer.children[0]);
   };
 
-  /**
-   * FRA: Cette fonction créer le html qui contient la media et le retourne
+  /** Cette fonction créer le html qui contient la media et le retourne
    * @returns {HTMLElement}
    */
   getMedia = () => {
@@ -164,10 +163,10 @@ export default class LightBox {
       media = document.createElement('video');
       media.setAttribute('class', 'media');
       
-      /* FRA: activation des boutons permettant de démarrer la video */
+      /* activation des boutons permettant de démarrer la video */
       media.setAttribute('controls', 'true');
       media.innerHTML = `<source src="assets/images/${this.current.photographerId}/${this.current.video}" type="video/mp4">`;
-    };
+    }
 
     this.media = media;
 
@@ -175,7 +174,7 @@ export default class LightBox {
   };
 
   /**
-   * FRA: Cette fonction ajoute la vue au document
+   * Cette fonction ajoute la vue au document
    */
   render = () => {
     this.target.innerHTML = '';

@@ -2,32 +2,32 @@ import Api from './class/Api.js';
 import Photographer from './class/Photographer.js';
 
 
-/* FRA: Cibles */
+/* * Cibles */
 
 const photographerTarget = document.getElementById('photographers-list');
 
-/* FRA: Fonctions */
+/* * Fonctions */
 const dispatch = (element, target) => {
   target.appendChild(element);
 };
 
-/* FRA: Api initialization */
+/* * Api initialization */
 
 try {
   await Api.init();
 } catch (error) {
   console.log(error);
-};
+}
 
 
-/* FRA: Récupère et crée tous les photographes */
+/* * Récupère et crée tous les photographes */
 
 Api.getAllPhotographers().forEach(photographer => new Photographer(photographer));
 
 
-/* FRA: Injecter les photographes */
+/* * Injecter les photographes */
 Photographer.instances.forEach(photographer => {
   
-  /* FRA: Nous prenons l'élément pour chaque instance de photographe et injectons dans le photographeTarget qui est l'élément de la liste des photographes */
+  /* * Nous prenons l'élément pour chaque instance de photographe et injectons dans le photographeTarget qui est l'élément de la liste des photographes */
   dispatch(photographer.element, photographerTarget);
 });

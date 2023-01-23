@@ -7,25 +7,25 @@ export default class Api {
 
   /**
    
-   * FRA: Cette fonction récupère toutes les données json
+   * Cette fonction récupère toutes les données json
    */
   static init = async () => {
-    /* FRA: Récuperation des donnéees json avec fetch */
+    /* Récuperation des donnéees json avec fetch */
     const request = await fetch('../../data/photographers.json');
 
-    /* FR: Si la requête est ok */
+    /* Si la requête est ok */
     if (request.ok) {
       console.log('Data loaded !');
     
-    /* FRA: Si la requête n'est pas correct on affiche un message et le code du status */
+    /* * Si la requête n'est pas correct on affiche un message et le code du status */
     } else if (!request.ok) {
       console.log('Data not found', `status code: ${request.status}`);
-    };
+    }
 
-    /* FRA: Stocker les données json de la requête dan une variable */
+    /* * Stocker les données json de la requête dan une variable */
     const data = await request.json();
 
-    /* FRA: Stocker les données des photographes dans static photographers dans Api class */
+    /* * Stocker les données des photographes dans static photographers dans Api class */
     Api.photographers = data.photographers;
     Api.medias = data.media;
   };
@@ -33,7 +33,7 @@ export default class Api {
   /* GETTERS */
 
   /**
-   * FRA: Obtenir tous les photographes
+   * * Obtenir tous les photographes
    * @returns {object}
    */
   static getAllPhotographers = () => {
@@ -42,7 +42,7 @@ export default class Api {
   };
 
   /**
-   * FRA: Obtenir le photogaphe par son id
+   * * Obtenir le photogaphe par son id
    * @param {number} id
    * @returns {object}
    */
@@ -56,7 +56,7 @@ export default class Api {
   };
 
   /**
-   * FRA: Obtenir les media d'un photographe par son id
+   * * Obtenir les media d'un photographe par son id
    * @param {number} id
    */
   static getPhotographerMedia = (id) => {

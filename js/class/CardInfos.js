@@ -4,7 +4,6 @@ export default class CardInfos {
   constructor (price) {
     this.price = price;
   }
-
   static updateTotalLike = () => {
     document.getElementById('counter-likes').innerHTML = Media.totalLikes;
   };

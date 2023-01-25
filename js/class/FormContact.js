@@ -219,7 +219,6 @@ function forAllFieldsValidation () {
   checkEmail();
   checkMessage();
 }
-
 /* * Checker tout les inputs de check */
 function validate () {
   

@@ -1,7 +1,7 @@
 import FormContact from './FormContact.js';
 
 /**
- * class Photographer
+class Photographer
  */
 export default class Photographer {
   

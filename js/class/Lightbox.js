@@ -11,8 +11,7 @@ export default class LightBox {
     this.render();
   }
 
-  /**
-   *  Cette fonction va retourner la vue de la lightbox
+  /**Cette fonction va retourner la vue de la lightbox
    * @returns {HTMLElement}
    */
   getView = () => {

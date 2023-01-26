@@ -9,7 +9,7 @@ export default class Api {
    */
   static init = async () => {
     /* Récuperation des donnéees json avec fetch */
-    const request = await fetch('../../data/photographers.json');
+    const request = await fetch('/data/photographers.json');
 
     /* Si la requête est ok */
     if (request.ok) {
